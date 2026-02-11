@@ -1,0 +1,186 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:b205c9c1-8c33-4e8e-a958-21d99152a6d4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-02-11T02:42:45Z",
+    "tools": {
+      "services": [
+        {
+          "provider": {
+            "name": "PQCA"
+          },
+          "name": "cbomkit-theia",
+          "version": "edge",
+          "services": [
+            {
+              "name": "Certificate File Plugin"
+            },
+            {
+              "name": "Secret Detection Plugin"
+            },
+            {
+              "name": "OpenSSL Config Plugin"
+            },
+            {
+              "name": "Problematic CA Detection Plugin"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "d96f418e-8ddd-465b-a3e7-6cef10b9ebc2",
+      "type": "cryptographic-asset",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "assets/demo-cert.pem"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ]
+        },
+        "oid": "1.2.840.113549.1.1.1"
+      }
+    },
+    {
+      "bom-ref": "f8cb2a43-8cc9-4c65-838d-f82e79c88b6d",
+      "type": "cryptographic-asset",
+      "name": "SHA256",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "assets/demo-cert.pem"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "cryptoFunctions": [
+            "digest"
+          ]
+        }
+      }
+    },
+    {
+      "bom-ref": "4ef3b524-1feb-4273-8254-a0e14619ba6d",
+      "type": "cryptographic-asset",
+      "name": "SHA256-RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "assets/demo-cert.pem"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "parameterSetIdentifier": "256",
+          "padding": "pkcs1v15",
+          "cryptoFunctions": [
+            "sign"
+          ]
+        },
+        "oid": "1.2.840.113549.1.1.11"
+      }
+    },
+    {
+      "bom-ref": "74195fae-ed04-429a-824d-050575aa5d92",
+      "type": "cryptographic-asset",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "assets/demo-cert.pem"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "encapsulate",
+            "decapsulate",
+            "sign"
+          ]
+        },
+        "oid": "1.2.840.113549.1.1.1"
+      }
+    },
+    {
+      "bom-ref": "955f11ed-64ae-4fdf-8c09-9d43a0ca3f0e",
+      "type": "cryptographic-asset",
+      "name": "RSA-2048",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "assets/demo-cert.pem"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key",
+          "algorithmRef": "74195fae-ed04-429a-824d-050575aa5d92",
+          "value": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0ExaBJSLKVRlOhq4TV3re7fiTLtr4GV2YC8ebdgQgv2azNlrOQoILIk8E1WhThCcrp131SoLvQhj+IrBqMK3G0l2Tan/Tsqlpg3gqaGoz+D29DxSxvQU0LntSL6p++hTcb2E0JyMDn66AHn2uUPbCI9PqkK0RuKClCiL1QCABhBfWGNJRsmLrSPqoariPddwg1z7+oWKeVwfHUJc/1vwRTG2mjsIRBAhzzJF44xF1U+tty4eWsHHYy5UbbyRs3a4IqglViFw9+J2lE7DMSxUtTSgQ/H3rYQyEvOecYIoCfWu92X2iVFM2+qf9076HqG7auaq5nK0jk32fHJzTvvOUQIDAQAB",
+          "size": 2048,
+          "format": "PEM"
+        },
+        "oid": "1.2.840.113549.1.1.1"
+      }
+    },
+    {
+      "bom-ref": "251a6ad8-e520-4b5a-8d3c-878d133d7636",
+      "type": "cryptographic-asset",
+      "name": "cbom-demo",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "assets/demo-cert.pem"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "certificate",
+        "certificateProperties": {
+          "subjectName": "cbom-demo",
+          "issuerName": "cbom-demo",
+          "notValidBefore": "2026-02-11T02:39:56Z",
+          "notValidAfter": "2027-02-11T02:39:56Z",
+          "signatureAlgorithmRef": "4ef3b524-1feb-4273-8254-a0e14619ba6d",
+          "subjectPublicKeyRef": "955f11ed-64ae-4fdf-8c09-9d43a0ca3f0e",
+          "certificateFormat": "X.509",
+          "certificateExtension": "pem"
+        }
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "4ef3b524-1feb-4273-8254-a0e14619ba6d",
+      "dependsOn": [
+        "d96f418e-8ddd-465b-a3e7-6cef10b9ebc2",
+        "f8cb2a43-8cc9-4c65-838d-f82e79c88b6d"
+      ]
+    }
+  ]
+}
